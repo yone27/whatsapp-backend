@@ -1,13 +1,13 @@
 const mongoose = require('mongoose')
-mongoose.set('useCreateIndex', true); // para quitar un warnings
 
-mongoose.set('useFindAndModify', false); // Quitamos los warnings de findOneAndUpdate / delete
-mongoose.connect('mongodb://localhost/whatsapp', {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    })
+mongoose.connect('mongodb+srv://yoneiker:yoneiker@cluster0-t41nx.mongodb.net/whatsapp', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+})
     .then(db => console.log("db is connect"))
-    .catch(err => console.error(err,'aloo'))
+    .catch(err => console.error(err, 'aloo'))
 
 mongoose.connection.on('error', error => {
     console.log(error);
