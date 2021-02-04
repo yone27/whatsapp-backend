@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
+const keys = require("./keys");
 
-mongoose.connect('mongodb+srv://yoneiker:yoneiker@cluster0-t41nx.mongodb.net/whatsapp', {
+mongoose.connect(keys.mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
@@ -14,4 +15,6 @@ mongoose.connection.on('error', error => {
 })
 
 // Importar los modelos
+require('../models/Users')
 require('../models/Messages')
+require('../models/Rooms')

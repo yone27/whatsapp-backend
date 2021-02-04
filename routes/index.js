@@ -1,13 +1,25 @@
 const express = require('express')
 const router = express.Router()
-const messageController = require('../controllers/messageController')
+const MessageController = require('../controllers/MessageController')
+const AuthController = require('../controllers/AuthController')
 
 
 module.exports = () => {
+    // Auth routes
 
-    router.get('/messages/sync', messageController.getMessages)
+    // @desc signup user
+    // @access Public
+    router.post("/signup", AuthController.signup);
 
-    router.post('/messages/new', messageController.addMessage)
+    // @desc signin user and return JWT token
+    // @access Public
+    router.post("/signin", AuthController.signin);
+    
+    router.post("/test", AuthController.test);
+
+    router.get('/messages/sync', MessageController.getMessages)
+
+    router.post('/messages/new', MessageController.addMessage)
 
     return router
 }

@@ -11,7 +11,7 @@ exports.addMessage = async (req, res) => {
             res.status(500).send(err)
         }
     } catch (error) {
-        res.status(500).send(err)
+        res.status(500).send(error)
     }
 }
 
