@@ -18,10 +18,6 @@ const UserSchema = new Schema({
     password: {
         type: String
     },
-    contacts: {
-        type: Schema.ObjectId,
-        ref: "rooms"
-    },
     createat: {
         type: Date,
         default: Date.now

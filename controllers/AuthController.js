@@ -84,25 +84,21 @@ exports.logout = async (req, res) => {
     res.send('logout')
 }
 exports.test = async (req, res) => {
-
-
     try {
         // Creamos room test
         // const data = {
-        //     members: ['601ae6070f6e501cbca15483', '601ae5631c4a012250ba4ded'],
-        //     messages: ['601b40f68fae5b1d10ef120f', '601b40bb8fae5b1d10ef120e', '601b40a18fae5b1d10ef120d']
+        //     members: ['601d7d92ca90643128bfa8aa', '601d7d65ca90643128bfa8a9'],
+        //     messages: ['601d7e13ca90643128bfa8b5', '601d7e0cca90643128bfa8b4', '601d7e09ca90643128bfa8b3','601d7e04ca90643128bfa8b2','601d7e01ca90643128bfa8b1', '601d7defca90643128bfa8b0','601d7dedca90643128bfa8af']
         // }
 
-        // const res = await Rooms.create(data)
 
-        //         let results = await Messages.lookup({
-        //             path: "users",
-        //         })
-        // console.log(results)
+        // const res = await Rooms.create(data)
+        // console.log(res)
 
         const data = await Rooms.find()
             .populate('members')
             .populate('messages')
+
         res.status(201).json(data)
 
         // if (data) {

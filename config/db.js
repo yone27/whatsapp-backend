@@ -8,7 +8,7 @@ mongoose.connect(keys.mongoURI, {
     useFindAndModify: false
 })
     .then(db => console.log("db is connect"))
-    .catch(err => console.error(err, 'aloo'))
+    .catch(err => console.error(err))
 
 mongoose.connection.on('error', error => {
     console.log(error);

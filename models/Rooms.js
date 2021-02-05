@@ -5,17 +5,25 @@ const Schema = mongoose.Schema;
 const RoomSchema = new Schema({
     members: [{
         type: Schema.ObjectId,
-        ref: "users",
-        required: true
+        ref: "users"
     }],
     messages: [{
         type: Schema.ObjectId,
         ref: "messages"
-    }]
-    // createat: {
-    //     type: Date,
-    //     default: Date.now
-    // }
+    }],
+    creatorId: {
+        type: Schema.ObjectId,
+        ref: "users"
+    },
+    receiverId: {
+        type: Schema.ObjectId,
+        ref: "users"
+    },
+    name: String,
+    createat: {
+        type: Date,
+        default: Date.now
+    }
 });
 
 module.exports = mongoose.model("rooms", RoomSchema);
