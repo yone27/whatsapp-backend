@@ -6,12 +6,10 @@ exports.addRoom = async (req, res) => {
     try {
         // Buscamos el id del phone que envio
         const user = await Users.findOne({ phone: { $regex: '.*' + req.body.phone + '.*' } });
-        
         const data = {
-            members: req.body.members,
+            members: [user._id],
             name: req.body.name,
-            creatorId: req.body.creatorId,
-            receiverId: user && user._id
+            creatorId: req.body.creatorId
         }
 
         // Creamos room
@@ -34,7 +32,7 @@ exports.getRooms = async (req, res) => {
         const rooms = await Rooms.find()
             .populate('members')
             .populate('messages')
-
+            console.log(rooms)
         if (rooms) {
             res.status(201).json(rooms)
         } else {

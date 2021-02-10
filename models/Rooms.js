@@ -15,10 +15,6 @@ const RoomSchema = new Schema({
         type: Schema.ObjectId,
         ref: "users"
     },
-    receiverId: {
-        type: Schema.ObjectId,
-        ref: "users"
-    },
     name: String,
     createat: {
         type: Date,
